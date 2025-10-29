@@ -5,7 +5,7 @@ You may want to install R & RStudio on your local computer. This will give you s
 
 ---------------------
 
-## **Step 1: Head to the The Comprehensive R Archive Network**
+## **Step 1: Head to the Comprehensive R Archive Network**
 
 Head over to the [CRAN Homepage](https://cran.r-project.org/)
 
@@ -18,7 +18,7 @@ Head over to the [CRAN Homepage](https://cran.r-project.org/)
 ##  **Step 2: Select your operating system (MacOS, Windows, Linux)** 
 
 
-On the CRAN homepage select the option to download R relevant to your operating system. Options for Linux, MacOS and Windows can be found in the first section on the homepage as highlighted in red.
+On the CRAN homepage select the option to download R based on your local operating system (Linux, Windows or Linux) as highlighted in red in the image below.
 
 ![CRAN Operating System Options](../img/Install_Options.png "")
 
@@ -27,9 +27,9 @@ On the CRAN homepage select the option to download R relevant to your operating 
 
 ---------
 
-## **Setp 3: Follow installation instructions for given operating system** 
+## **Setp 3: Follow the installation instructions** 
 
-For example for an apple silicon Mac I would select to install the package **R-4.5.1-arm64.pkg**
+For example, for  an apple silicon Mac I would select to install the package **R-4.5.1-arm64.pkg** and subsequently follow the installation instructions when prompted. 
 
 ![CRAN Specific Package](../img/Specific_Package.png "")
 
@@ -38,7 +38,7 @@ For example for an apple silicon Mac I would select to install the package **R-4
 
 ## **Step 4: Validate R Installation**
 
-Following installation, search for **R** in your installed programs. Click on it and bring up the R console. 
+Once installed, search for **R** in your programs. Click on the relevant icon to bring up the R console. 
 
 
 ![R Program Locator](../img/R_Search.png "")
@@ -48,13 +48,17 @@ Following installation, search for **R** in your installed programs. Click on it
 
 ## **Step 5: You can now install RStudio**
 
-Please go to the website: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/) and follow the guided download process. Make sure to select the **FREE** option and ensure the prompted RStudio download **matches your operating system** as highlighted in red below! 
+Now R is installed we can subsequently install RStudio. 
 
+Please go to the website: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/) and follow the guided download process. 
+
+Make sure to select the **FREE** option and ensure the prompted RStudio download **matches your operating system** as highlighted in red below! 
 
 ![RStudio POSIT Install](../img/RSTUDIO_POSIT_INSTALL.png)
 
 
 
 ## **Step 6: Open RStudio on your local computer**
+
 
 ![RStudio Local](../img/RStudio_Local.png "")
