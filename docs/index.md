@@ -1,6 +1,6 @@
-# Programming in R
+# Programming in R Crash Course
 
-Welcome to programming in R, introduction course!
+Welcome to programming in R, crash course!
 
 ## What is R?
 
