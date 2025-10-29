@@ -1,0 +1,41 @@
+site_name: BIO773P
+
+theme:
+  name: material
+  language: en
+  features:
+    - content.tooltips
+    - navigation.instant
+    - navigation.tabs
+    - toc.integrate
+    - content.tabs.link
+
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - abbr
+  - pymdownx.keys
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true 
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: 
+    - index.md
+    - R via Apps Anywhere: UsingR/Cloud_R_AppsAnywhere.md
+    - Install R Locally: UsingR/Local_R_Install.md
+
+  - Practicals:
+    - R Crash Course Practical: practicals/R_Crash_Course_Practical.md
+    - R Crash Course Practical - Solutions: practicals/R_Crash_Course_Practical_Answers.md
