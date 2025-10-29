@@ -1,0 +1,1375 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../UsingR/Local_R_Install/">
+      
+      
+        <link rel="next" href="../R_Crash_Course_Practical_Answers/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>R Crash Course Practical - BIO773P</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-1-introduction-to-basic-data-structures" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BIO773P" class="md-header__button md-logo" aria-label="BIO773P" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BIO773P
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              R Crash Course Practical
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Practicals
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BIO773P" class="md-nav__button md-logo" aria-label="BIO773P" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    BIO773P
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming in R
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UsingR/Cloud_R_AppsAnywhere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R via Apps Anywhere
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UsingR/Local_R_Install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Install R Locally
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practicals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practicals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    R Crash Course Practical
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    R Crash Course Practical
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      The environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-create-a-new-variable-z-out-of-the-values-in-x-and-y-you-can-choose-any-formula-you-want-for-z-as-long-as-it-contains-both-x-and-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1. Create a new variable, z, out of the values in x and y. You can choose any formula you want for z, as long as it contains both x and y.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q2-let-us-define-the-variable-x-10-what-will-the-outcome-of-the-following-expressions-be" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2. Let us define the variable x &lt;- 10. What will the outcome of the following expressions be?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-below-are-some-of-the-rules-that-logical-operators-follow-write-in-plain-english-what-it-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3. Below are some of the rules that logical operators follow. Write in plain English what it means.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-given-three-variables-x-y-and-z-how-would-you-write-the-following-sentence-in-a-logical-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4. Given three variables (x, y and z), how would you write the following sentence in a logical expression?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalars-and-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalars and vectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scalars and vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q5-what-number-would-you-obtain-if-you-typed-seq_vec23-in-the-console-try-working-this-out-for-yourself-before-typing-it-into-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5. What number would you obtain if you typed seq_vec2[3] in the console? (try working this out for yourself before typing it into R)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q6-what-happens-when-you-type-seq_vec2seqfrom-1-to-5-in-the-console-and-hit-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q6. What happens when you type seq_vec2[seq(from = 1, to = 5)] in the console and hit return?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7-how-would-you-retrieve-just-the-8th-13th-and-21st-elements-of-seq_vec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q7. How would you retrieve just the 8th, 13th and 21st elements of seq_vec2?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q8-try-evaluating-combined_vec2-numeric_vec-seq_vec2-in-the-console-what-happens-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q8. Try evaluating combined_vec2 &lt;- numeric_vec * seq_vec2 in the console. What happens? Why?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q9-what-do-you-type-to-find-the-length-of-a-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q9. What do you type to find the length of a vector?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q10-in-fact-compatible-does-not-mean-that-vectors-have-to-be-exactly-the-same-length-try-evaluating-combined_vec3-numeric_vec-rep_vec-in-the-console-and-look-at-the-result-what-is-the-reasoning-behind-the-values-produced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating combined_vec3 &lt;- numeric_vec * rep_vec in the console, and look at the result. What is the reasoning behind the values produced?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q11-what-happens-when-you-evaluate-rbindnumeric_vec-seq_vec2-what-happens-when-you-evaluate-cbindnumeric_vec-seq_vec2-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q11. What happens when you evaluate rbind(numeric_vec, seq_vec2)? What happens when you evaluate cbind(numeric_vec, seq_vec2)? Why?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q12-when-you-evaluate-rbindnumeric_vec-seq_vec2-you-get-a-warning-message-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q12. When you evaluate rbind(numeric_vec, seq_vec2) you get a warning message. Why?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q13-what-happens-when-you-evaluate-rbindnumeric_vec-rep_vec-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q13. What happens when you evaluate rbind(numeric_vec, rep_vec)? Why?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q14-how-do-you-retrieve-the-2nd-column-of-matrix2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q14. How do you retrieve the 2nd column of matrix2?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q15-the-variable-matrix1-describes-a-matrix-produced-by-the-following-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q15. The variable matrix1 describes a matrix produced by the following code:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q16-which-of-these-commands-would-output-the-2nd-and-4th-columns-of-matrix1-only-again-try-answering-this-without-evaluating-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q16. Which of these commands would output the 2nd and 4th columns of matrix1 only (again, try answering this without evaluating the code!)?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q17-write-your-own-script-for-creating-a-matrix-from-three-separate-vectors-the-first-vector-vec1-should-be-50-elements-long-and-should-simply-contain-the-numbers-1-to-50-the-second-vector-vec2-should-contain-the-square-of-these-numbers-ie-vec1-raised-to-the-power-2-the-third-vector-vec3-should-contain-the-cube-of-these-numbers-ie-vec1-raised-to-the-power-3-finally-create-a-matrix-my_matrix-which-has-vec1-as-the-first-row-vec2-as-the-second-row-and-vec3-as-the-third-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q17. Write your own script for creating a matrix from three separate vectors. The first vector, vec1, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, vec2, should contain the square of these numbers (i.e. vec1 raised to the power 2). The third vector, vec3, should contain the cube of these numbers (i.e. vec1 raised to the power 3). Finally, create a matrix, my_matrix, which has vec1 as the first row, vec2 as the second row, and vec3 as the third row.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data frame
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lists
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsetting-a-data-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subsetting a data frame
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subsetting a data frame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q18-how-would-you-subset-the-variable-puromycin-to-return-only-those-fields-for-which-the-concentration-is-greater-than-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q18. How would you subset the variable Puromycin to return only those fields for which the concentration is greater than 0.1?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q19-what-is-the-average-mean-concentration-for-these-cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q19. What is the average (mean) concentration for these cells?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q20-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-cells-were-not-treated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q20. How would you subset the variable Puromycin to return only the fields for which the cells were not treated?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q21-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-05-and-the-rate-is-greater-than-100-remember-the-and-command-from-logical-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q21. How would you subset the variable Puromycin to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the "and" command from logical expressions)?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q22-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-greater-than-02-and-the-cells-have-been-treated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q22. How would you subset the variable Puromycin to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q23-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-01-or-greater-than-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q23. How would you subset the variable Puromycin to return only the fields for which the concentration is less than 0.1 or greater than 0.2?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q24-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-02-and-the-rate-is-less-than-70-and-the-cells-have-been-treated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q24. How would you subset the variable Puromycin to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_Crash_Course_Practical_Answers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R Crash Course Practical - Solutions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="part-1-introduction-to-basic-data-structures"><strong>Part 1 - Introduction to basic data structures</strong></h1>
+<hr />
+<h2 id="introduction">Introduction</h2>
+<p>You may already be familiar with R from introductions to statistics, and so some of the material covered here should be fairly straightforward. However, please work through all sections in order and there are harder bonus questions at the end! </p>
+<p>We will not be covering any stats in todays crash course as our goal is to bring you up to speed using R. Thoughout the day, make use of R’s help system and <a href="https://chatgpt.com/">https://chatgpt.com/</a>, your neighbour, and don't be afraid to ask a demonstrator for help if you are stuck!</p>
+<hr />
+<h2 id="the-environment">The environment</h2>
+<p>To start with, let us reacquaint ourselves with the R environment. First of all, launch R (or RStudio).</p>
+<p>The main window you where you talk directly to R is called the <strong>console</strong>. This is where you run lines of code. Often, we prefer typing in a separate window in a separate file called a <strong>script</strong>. Try typing `1 + 2`` in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other <strong>text editor</strong>. In order to run the code that we have written in a script we need to select the line(s) that we want to run and hit Run, or type shift-enter or control-enter. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands in a way that would not be possible by working directly in the console. Using a script also helps for keeping track of what we did. In general you should work mainly with scripts and limit your direct use of the console.</p>
+<p>Also keep in mind that the R help is extremely good. Just put a question mark before any function that you do not understand (e.g. <code>?length</code>) to bring up the help file for that function. There are also many R websites and forums that you may find useful. The best way to learn any programming language is to fiddle - so please fiddle away with these tools to guide you!</p>
+<hr />
+<h2 id="variables">Variables</h2>
+<p>A variable is a symbolic way of storing a particular set of values and/or characters. For example, try typing</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">5</span>
+<span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">225</span>
+</code></pre></div>
+into the console and hitting return. This assigns the number <code>5</code> to the symbol <code>x</code>. You can run operations on variables (e.g. <code>3*x^2</code>), create new variables from existing variables (e.g. <code>y &lt;- 3*x^2</code>), and reassign existing variables to a new value (e.g.<code>x &lt;- 3*x^2</code>; try running that a few times).</p>
+<p>Please always use <code>&lt;-</code> for assignment. When in doubt about how to write something, check the <a href="https://style.tidyverse.org">tidyverse style guide</a>; it provides standard guidelines which most R users do or should follow.</p>
+<p>You can name variables almost anything you want. Try using descriptive names (avoiding <code>x</code> and <code>y</code>), and using "_" to separate words. As a rule of thumb, remember to make your code easily understandable for other people, including your future self.</p>
+<p>Finally some variable names are not allowed. Typing <code>?make.names</code> in the console brings up a help file describing the important variable name restrictions.</p>
+<h4 id="q1-create-a-new-variable-z-out-of-the-values-in-x-and-y-you-can-choose-any-formula-you-want-for-z-as-long-as-it-contains-both-x-and-y">Q1. Create a new variable, <code>z</code>, out of the values in <code>x</code> and <code>y</code>. You can choose any formula you want for <code>z</code>, as long as it contains both <code>x</code> and <code>y</code>.</h4>
+<hr />
+<h2 id="data-classes">Data classes</h2>
+<p>There are several classes (or types) of data.  The class of your data tells you whether R interprets the data as numbers, letters, factors (i.e. categories), logical values or a number of alternatives. You can use the function <code>class()</code> to check the class of a variable.</p>
+<p>You will probably have seen numeric (<code>x &lt;- 5</code>) and character variables (<code>x &lt;- "hello"</code>). An important class of data that you might not be familiar with is <strong>logical data</strong>. Simply put, logical data can only take one of two possible values: <code>TRUE</code> or <code>FALSE</code>. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">TRUE</span>
+</code></pre></div>
+<p>or false, for example</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">FALSE</span>
+</code></pre></div>
+<p>Try creating a logical variable in this way and look at the class of the variable - if you have done it correctly it should read "logical" (keep in mind that R is case-sensitive, i.e. <code>x &lt;- false</code> will throw an error).</p>
+<p>However, this is not the way that logical variables tend to be used in programming. We often create logical variables through a particular type of calculation, called a <strong>logical expression</strong>. You can think of a logical expression as a statement (or a question) that we send to R, which may be a true statement, or it may be a lie! For example, try evaluating the code</p>
+<div class="highlight"><pre><span></span><code><span class="m">5</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">4</span>
+</code></pre></div>
+<p>This statement is clearly true and accordingly R returns a value <code>TRUE</code>. The statement</p>
+<p><div class="highlight"><pre><span></span><code><span class="m">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">4</span>
+</code></pre></div>
+on the other hand, returns the value <code>FALSE</code>. We can assign this logical value to a variable by using the logical expression as input to the variable. This sounds complicated, but in practice it is very simple. Take the example</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="m">5</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">4</span><span class="p">)</span>
+</code></pre></div>
+<p>You can read the expression above as "the variable x is assigned the outcome of the logical expression 5 &gt; 4". In this particular example the variable <code>x</code> will get the value <code>TRUE</code>. Notice that the logical expression itself is within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.</p>
+<p>The main logical operators that you should be familiar with are the following:</p>
+<ul>
+<li><code>&gt;</code> is greater than</li>
+<li><code>&lt;</code> is less than</li>
+<li><code>&gt;=</code> is greater than or equal to</li>
+<li><code>&lt;=</code> is less than or equal to</li>
+<li><code>==</code> is equal to</li>
+<li><code>!=</code> is not equal to</li>
+</ul>
+<p>Play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.</p>
+<p>We can create more sophisticated logical expressions using the "and" command and the "or" command. The "and" command is written <code>&amp;</code> and called ampersand (keyboard shortcut Shift+7), while the "or" command is written <code>|</code> and called a "pipe" or vertical bar (keyboard shortcut Shift+\ on a standard Windows keyboard). These "operators" can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+can be read "x is greater than five, and x is less than or equal to ten". Similarly, the expression</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">12</span><span class="p">)</span>
+</code></pre></div>
+<p>can be read "x is less than six, or x is equal to twelve". By using a combination of these operators, while making good use of parentheses, it is possible to come up with some quite complex statements.</p>
+<p><strong>A short note on classes:</strong></p>
+<p>It's easy to get numeric and character data confused. For example, in <code>x &lt;- "blue"</code>, <code>x</code> is of class "character", while in <code>x &lt;- 4</code>, <code>x</code> is of class "numeric". The problem comes if you type:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;4&quot;</span>
+</code></pre></div>
+<p>In this case <code>x</code> is of class "character" because of the quotation marks. Try typing <code>class(x)</code> if you are confused. You can also type <code>is.numeric(x)</code> and <code>is.character(x)</code>.</p>
+<h4 id="q2-let-us-define-the-variable-x-10-what-will-the-outcome-of-the-following-expressions-be">Q2. Let us define the variable <code>x &lt;- 10</code>. What will the outcome of the following expressions be?</h4>
+<ul>
+<li><code>(x &gt; 5)</code></li>
+<li><code>(x &lt;= 10)</code></li>
+<li><code>(x != 10)</code></li>
+<li><code>(x &lt; 5) &amp; (x &lt; 105)</code></li>
+<li><code>(x &lt; 4) | (x &gt; 14) | (x == 10)</code></li>
+</ul>
+<h4 id="q3-below-are-some-of-the-rules-that-logical-operators-follow-write-in-plain-english-what-it-means">Q3. Below are some of the rules that logical operators follow. Write in plain English what it means.</h4>
+<ul>
+<li><code>TRUE &amp; TRUE</code> is <code>TRUE</code></li>
+<li><code>TRUE &amp; FALSE</code> is <code>FALSE</code></li>
+<li><code>FALSE &amp; TRUE</code> is <code>FALSE</code></li>
+<li><code>TRUE | FALSE</code> is <code>TRUE</code></li>
+<li><code>FALSE | TRUE</code> is <code>TRUE</code></li>
+</ul>
+<h4 id="q4-given-three-variables-x-y-and-z-how-would-you-write-the-following-sentence-in-a-logical-expression">Q4. Given three variables (<code>x</code>, <code>y</code> and <code>z</code>), how would you write the following sentence in a logical expression?</h4>
+<p><em>The variable <code>x</code> is less than variable <code>y</code>, or greater than variable <code>z</code>?</em></p>
+<hr />
+<h2 id="scalars-and-vectors">Scalars and vectors</h2>
+<p>Objects can be of different types. So far, we have looked at <strong>scalar objects</strong>, which contain a single variable (e.g. <code>x &lt;- 3</code>). Another very common type of object is the <strong>vector</strong>, which is an object containing several elements:</p>
+<div class="highlight"><pre><span></span><code><span class="n">numeric_vec</span><span class="w">   </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">)</span><span class="w">   </span><span class="c1"># c is a function for combining values into a vector or list.</span>
+<span class="n">seq_vec1</span><span class="w">      </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span>
+<span class="n">seq_vec2</span><span class="w">      </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.25</span><span class="p">)</span>
+<span class="n">rep_vec</span><span class="w">       </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">)</span>
+<span class="n">character_vec</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;How&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Now&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Brown&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cow&quot;</span><span class="p">)</span>
+<span class="n">logical_vec</span><span class="w">   </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span>
+</code></pre></div>
+<p>As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. <code>x[3]</code>) and of applying simple operations on all elements of the vector (e.g. <code>vec1 * 3</code> or <code>vec1 * vec2</code> - <em>make sure you understand what R is doing here</em>). You can also use vectors to access a set of elements (e.g. <code>x[seq(from = 1, to = 5)]</code>) or specific elements (e.g. <code>x[c(2, 7, 9)]</code>) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.</p>
+<h4 id="q5-what-number-would-you-obtain-if-you-typed-seq_vec23-in-the-console-try-working-this-out-for-yourself-before-typing-it-into-r">Q5. What number would you obtain if you typed <code>seq_vec2[3]</code> in the console? (try working this out for yourself before typing it into R)</h4>
+<h4 id="q6-what-happens-when-you-type-seq_vec2seqfrom-1-to-5-in-the-console-and-hit-return">Q6. What happens when you type <code>seq_vec2[seq(from = 1, to = 5)]</code> in the console and hit return?</h4>
+<h4 id="q7-how-would-you-retrieve-just-the-8th-13th-and-21st-elements-of-seq_vec2">Q7. How would you retrieve just the 8th, 13th and 21st elements of <code>seq_vec2</code>?</h4>
+<p>Simple calculations can be performed on vectors, in which case the operation is applied to every element of the vector separately. For example, try typing</p>
+<div class="highlight"><pre><span></span><code><span class="n">numeric_vec_squared</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">numeric_vec</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<p>in the console. You will find that <code>numeric_vec_squared</code> contains values taken from <code>numeric_vec</code>, where each element has been squared individually. Similarly, you can create logical expressions that apply to the whole matrix, such as <code>numeric_vec &gt; 3</code></p>
+<p>You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing</p>
+<div class="highlight"><pre><span></span><code><span class="n">combined_vec1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">numeric_vec</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">seq_vec1</span>
+</code></pre></div>
+<p>You will find that each of the elements of <code>combined_vec1</code> is equal to the product of the corresponding elements in <code>numeric_vec</code> and <code>seq_vec1</code></p>
+<h4 id="q8-try-evaluating-combined_vec2-numeric_vec-seq_vec2-in-the-console-what-happens-why">Q8. Try evaluating <code>combined_vec2 &lt;- numeric_vec * seq_vec2</code> in the console. What happens? Why?</h4>
+<h4 id="q9-what-do-you-type-to-find-the-length-of-a-vector">Q9. What do you type to find the length of a vector?</h4>
+<h4 id="q10-in-fact-compatible-does-not-mean-that-vectors-have-to-be-exactly-the-same-length-try-evaluating-combined_vec3-numeric_vec-rep_vec-in-the-console-and-look-at-the-result-what-is-the-reasoning-behind-the-values-produced">Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating <code>combined_vec3 &lt;- numeric_vec * rep_vec</code> in the console, and look at the result. What is the reasoning behind the values produced?</h4>
+<hr />
+<h2 id="matrices">Matrices</h2>
+<p>Another major type of object in R is the <strong>matrix</strong>. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions <code>rbind()</code> and <code>cbind()</code>. Try <code>rbind(numeric_vec, seq_vec2)</code>.</p>
+<h4 id="q11-what-happens-when-you-evaluate-rbindnumeric_vec-seq_vec2-what-happens-when-you-evaluate-cbindnumeric_vec-seq_vec2-why">Q11. What happens when you evaluate <code>rbind(numeric_vec, seq_vec2)</code>? What happens when you evaluate <code>cbind(numeric_vec, seq_vec2)</code>? Why?</h4>
+<h4 id="q12-when-you-evaluate-rbindnumeric_vec-seq_vec2-you-get-a-warning-message-why">Q12. When you evaluate <code>rbind(numeric_vec, seq_vec2)</code> you get a warning message. Why?</h4>
+<h4 id="q13-what-happens-when-you-evaluate-rbindnumeric_vec-rep_vec-why">Q13. What happens when you evaluate <code>rbind(numeric_vec, rep_vec)</code>? Why?</h4>
+<p>You can also create matrices directly in a number of different ways:</p>
+<div class="highlight"><pre><span></span><code><span class="n">matrix1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq_len</span><span class="p">(</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">24</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">)</span>
+<span class="n">matrix2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq_len</span><span class="p">(</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">24</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">matrix3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">diag</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="n">matrix5</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</code></pre></div>
+<p>As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for rows and another one for columns! For example:</p>
+<ul>
+<li><code>matrix1[4, 3]</code></li>
+<li><code>matrix1[seq_len(length.out = 2), seq_len(length.out = 2)]</code></li>
+<li><code>matrix1[seq_len(length.out = 2), ]</code></li>
+</ul>
+<h4 id="q14-how-do-you-retrieve-the-2nd-column-of-matrix2">Q14. How do you retrieve the 2nd column of <code>matrix2</code>?</h4>
+<p>You can perform simple calculations on matrices, in which case the calculation applies to each element separately:</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">matrix3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">matrix1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">matrix2</span>
+</code></pre></div>
+<p>Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">matrix1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<p>There are a number of useful functions that can be applied to matrices. Have a look at each of the following functions, and try to make sense of the output:</p>
+<ul>
+<li><code>length()</code></li>
+<li><code>dim()</code></li>
+<li><code>t()</code></li>
+<li><code>colSums()</code></li>
+<li><code>summary()</code></li>
+</ul>
+<p>Keep in mind that if you ever need help in understanding a function, just bring up the help file for that function.</p>
+<h4 id="q15-the-variable-matrix1-describes-a-matrix-produced-by-the-following-code">Q15. The variable <code>matrix1</code> describes a matrix produced by the following code:</h4>
+<div class="highlight"><pre><span></span><code><span class="n">matrix1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq_len</span><span class="p">(</span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</code></pre></div>
+<p>What number would we expect to see when we evaluate <code>matrix1[1, 2]</code>? Try to answer this without evaluating the code! Why not a different number?</p>
+<h4 id="q16-which-of-these-commands-would-output-the-2nd-and-4th-columns-of-matrix1-only-again-try-answering-this-without-evaluating-the-code">Q16. Which of these commands would output the 2nd and 4th columns of matrix1 only (again, try answering this without evaluating the code!)?</h4>
+<p><div class="highlight"><pre><span></span><code><span class="n">matrix1</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">]</span>
+<span class="nf">matrix1</span><span class="p">(,</span><span class="w"> </span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">))</span>
+<span class="n">matrix1</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="p">]</span>
+<span class="n">matrix1</span><span class="p">[,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)]</span>
+</code></pre></div>
+** Note that in most situations, we try to avoid using this type of column indication. This is because it is easy to make a mistake with the numbers. Instead, it is easier and less risky to use column names **</p>
+<h4 id="q17-write-your-own-script-for-creating-a-matrix-from-three-separate-vectors-the-first-vector-vec1-should-be-50-elements-long-and-should-simply-contain-the-numbers-1-to-50-the-second-vector-vec2-should-contain-the-square-of-these-numbers-ie-vec1-raised-to-the-power-2-the-third-vector-vec3-should-contain-the-cube-of-these-numbers-ie-vec1-raised-to-the-power-3-finally-create-a-matrix-my_matrix-which-has-vec1-as-the-first-row-vec2-as-the-second-row-and-vec3-as-the-third-row">Q17. Write your own script for creating a matrix from three separate vectors. The first vector, <code>vec1</code>, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, <code>vec2</code>, should contain the square of these numbers (i.e. <code>vec1</code> raised to the power 2). The third vector, <code>vec3</code>, should contain the cube of these numbers (i.e. <code>vec1</code> raised to the power 3). Finally, create a matrix, <code>my_matrix</code>, which has <code>vec1</code> as the first row, <code>vec2</code> as the second row, and <code>vec3</code> as the third row.</h4>
+<hr />
+<h2 id="data-frame">Data frame</h2>
+<p>A very common type of object is the <strong>data frame</strong>. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are  loaded into R by default (e.g., <code>Puromycin</code>). Check the help to understand what this data includes: <code>?Puromycin</code>.</p>
+<p>R allows you to get to specific columns using their name and the dollar sign: <code>Puromycin$rate</code>.  (it is also possible to use indices like in matrices, for example<code>Puromycin[1, 1]</code> or <code>Puromycin[, 2]</code>. But using indices is risky and should thus be avoided).</p>
+<p>Note that, although the data frame is of class data frame, typing <code>Puromycin$rate</code> will return a vector of class numeric (try using the function <code>class()</code> to check this).</p>
+<p>Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the <strong>factor</strong> (this is true for R version 3, R version 4 interprets columns with words as data type <strong>character</strong>). This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Puromycin</span><span class="o">$</span><span class="n">rate</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">Puromycin</span><span class="o">$</span><span class="n">rate</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">Puromycin</span><span class="o">$</span><span class="n">state</span><span class="p">)</span>
+<span class="nf">levels</span><span class="p">(</span><span class="n">Puromycin</span><span class="o">$</span><span class="n">state</span><span class="p">)</span>
+<span class="nf">as.character</span><span class="p">(</span><span class="n">Puromycin</span><span class="o">$</span><span class="n">state</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="lists">Lists</h2>
+<p>The last data type that is commonly seen in R is the <strong>list</strong>. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_list</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;G&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;H&#39;</span><span class="p">))</span>
+</code></pre></div>
+<p>Again, we can access elements from the list using their index, with brackets <code>my_list[[1]]</code>, <em>but you should NOT do this!</em>. Instead, use the names whenever possible, either using the bracket notation (<code>my_list[['a']]</code>) or the dollar sign (<code>my_list$a</code>). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…</p>
+<p>There are other types of data in R, with many being specific to particular libraries.</p>
+<hr />
+<h2 id="subsetting-a-data-frame">Subsetting a data frame</h2>
+<p>We have already come across one way of subsetting through the use of square brackets. By typing, for example,</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">Puromycin</span>
+<span class="n">Puromycin</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="p">]</span><span class="w">  </span><span class="c1"># this is acceptable</span>
+<span class="n">Puromycin</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span><span class="w">           </span><span class="c1"># never do this: use the column&#39;s name instead</span>
+</code></pre></div>
+we can isolate certain rows of the data frame that we are interested in. Using numbers to access specific rows is ok, but we should never do this with columns. Instead, we can use <code>subset</code> (see below) or the dollar sign <code>$</code> to get a specific column:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Puromycin</span><span class="o">$</span><span class="n">rate</span>
+</code></pre></div>
+<p>We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># returns TRUE or FALSE</span>
+<span class="n">Puromycin</span><span class="o">$</span><span class="n">rate</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">100</span>
+<span class="c1"># returns which elements are TRUE</span>
+<span class="nf">which</span><span class="p">(</span><span class="n">Puromycin</span><span class="o">$</span><span class="n">rate</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+</code></pre></div>
+<p>We can use the subset function to select the rows for which the statement is TRUE:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># returns all the columns, but only the rows for which</span>
+<span class="c1"># Puromycin$rate &lt; 100 is TRUE</span>
+<span class="n">puromycin_sub</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">Puromycin</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+</code></pre></div>
+<p>We could subset by the "state" column:</p>
+<div class="highlight"><pre><span></span><code><span class="n">puromycin_treated</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">Puromycin</span><span class="p">,</span><span class="w"> </span><span class="n">subset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;treated&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>This will return all fields for which the state is equal to "treated". Notice that the factor must be written in quotation marks here, as R needs to know that it is looking for a particular set of characters, rather than a variable.</p>
+<h4 id="q18-how-would-you-subset-the-variable-puromycin-to-return-only-those-fields-for-which-the-concentration-is-greater-than-01">Q18. How would you subset the variable <code>Puromycin</code> to return only those fields for which the concentration is greater than 0.1?</h4>
+<h4 id="q19-what-is-the-average-mean-concentration-for-these-cells">Q19. What is the average (mean) concentration for these cells?</h4>
+<h4 id="q20-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-cells-were-not-treated">Q20. How would you subset the variable <code>Puromycin</code> to return only the fields for which the cells were not treated?</h4>
+<h4 id="q21-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-05-and-the-rate-is-greater-than-100-remember-the-and-command-from-logical-expressions">Q21. How would you subset the variable <code>Puromycin</code> to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the "and" command from logical expressions)?</h4>
+<h4 id="q22-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-greater-than-02-and-the-cells-have-been-treated">Q22. How would you subset the variable <code>Puromycin</code> to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?</h4>
+<h4 id="q23-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-01-or-greater-than-02">Q23. How would you subset the variable <code>Puromycin</code> to return only the fields for which the concentration is less than 0.1 or greater than 0.2?</h4>
+<h4 id="q24-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-02-and-the-rate-is-less-than-70-and-the-cells-have-been-treated">Q24. How would you subset the variable <code>Puromycin</code> to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?</h4>
+<hr />
+<h1 id="part-2-functions-loops"><strong>Part 2 - Functions &amp; Loops</strong></h1>
+<p>Building on your existing skills, we will now move on to consider advanced ways of controlling program flow. Specifically, we will explore <strong>functions</strong> and <strong>loops</strong>, two important features of R that are also present in most other programming languages. We will also be doing a few exercises with DNA/RNA strings. As always, you will want to refer frequently to the R help files (through <code>?</code>) and your own notes when exploring these new concepts.</p>
+<hr />
+<h2 id="functions">Functions</h2>
+<p>Functions are pieces of code that take input information (in the form of "arguments"), do something with it, and give back an output. They allow you to run an analysis multiple times without having to rewrite it from scratch every time you need to run it. A function looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">function_name</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">### the &quot;body&quot; of the function</span>
+
+<span class="w">  </span><span class="c1"># code that performs some calculation on the input</span>
+<span class="w">  </span><span class="c1"># possibly other lines of code that perform calculations</span>
+
+<span class="w">  </span><span class="c1"># returning an output vector:</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>You can choose whatever name you want instead of <code>function_name</code> (try a meaningful name). After the <code>&lt;-</code>, the word <code>function</code> within brackets lets R know that you are writing a new function. Here, <code>input</code> is the name of the only argument that the calculations in the <code>body</code> of the function are based on (your function <em>can</em> have multiple arguments). Between the curly brackets <code>{}</code> is the main code of your function, where the calculation(s) happen. Almost everything that occurs between the curly brackets stays within the curly brackets. The only thing that comes outside the curly brackets is what you put into the <code>return()</code> on the last line. If you have no <code>return()</code>, your function may compute something but nobody will ever know about it! Note that the <code>return</code> command can only handle a single argument.</p>
+<p>To take a self-explanatory example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<p>You just used the <code>mean</code> function, one of many functions that our predecessors built into R. The point of this function is that you can calculate the mean of any vector without explicitly writing the formula for the mean each time. The interesting thing about R is that it is possible to create your own functions. This is how R functions work:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## Define function named &#39;my_own_mean&#39;</span>
+
+<span class="n">my_own_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">## Calculate mean</span>
+<span class="w">  </span><span class="c1"># Sum all numbers in the vector</span>
+<span class="w">  </span><span class="n">sum_of_values</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Obtain the number of values in the vector</span>
+<span class="w">  </span><span class="n">number_of_values</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Get the mean</span>
+<span class="w">  </span><span class="n">mean_value</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sum_of_values</span><span class="o">/</span><span class="n">number_of_values</span>
+
+<span class="w">  </span><span class="c1">## Output the mean</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">mean_value</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">## Now run the function with some data:</span>
+<span class="nf">my_own_mean</span><span class="p">(</span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">))</span>
+
+<span class="nf">my_own_mean</span><span class="p">(</span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">))</span>
+</code></pre></div>
+<p>We created a function that computes the sum and number of all values in a given vector (<code>numbers</code>) and then divides them to obtain the mean. We split the calculation in three steps, just to show that you can have many lines of code in the body of a function. The only input this function receives is a vector of numbers (<code>numbers</code>) and all the calculations are based on this. In the end we return the result of the third calculation (<code>mean_value</code>). Does <code>number_of_values</code> exist in the normal R console? No! Because this variable was only created within the curly brackets. Remember? What happens between the curly brackets stays in the curly brackets.</p>
+<p>Nothing much happens after loading the function <code>my_own_mean</code> into R (you always have to evaluate the entire code of the function from <code>function_name</code> to the closing curly brackets <code>}</code> if you made changes to the code). The magic happens when you <em>call</em> the function. We did this by typing <code>my_own_mean(numbers = 1:50)</code> (of course you can use other vectors instead as well). The vector with numbers from 1 to 50 will be used as <code>numbers</code> in the function.</p>
+<p>Now take a look at the following lines of code. This code is designed to take a number in seconds and convert it into hours, minutes, and remaining seconds (<code>floor()</code> is R's built-in function for rounding down to the closest whole number):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Input raw number of seconds</span>
+<span class="n">number_of_seconds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">19955</span>
+
+<span class="c1"># Convert number_of_seconds into hours, minutes, and seconds</span>
+<span class="n">hours</span><span class="w">   </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="n">number_of_seconds</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">))</span>
+<span class="n">minutes</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">floor</span><span class="p">((</span><span class="n">number_of_seconds</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">60</span><span class="p">)</span>
+<span class="n">seconds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">number_of_seconds</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">((</span><span class="n">hours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">minutes</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span>
+
+<span class="c1"># Create a single vector containing all three quantities</span>
+<span class="n">outputs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="p">)</span>
+
+<span class="c1"># Output the solution to the console</span>
+<span class="n">outputs</span>
+</code></pre></div>
+<h4 id="q25-modify-the-code-above-to-make-it-into-a-function-called-time_converter-this-function-should-take-a-single-number-as-an-argument-the-number-of-seconds-we-want-to-convert-this-function-should-also-include-the-three-lines-of-code-that-convert-number_of_seconds-into-hours-minutes-and-seconds-the-line-of-code-that-merges-these-three-variables-into-one-vector-and-a-line-returning-this-vector-as-the-output-of-the-function-once-you-created-the-function-and-loaded-it-into-r-use-relevant-examples-for-testing-0-3600-another-remember-to-indent-any-code-inside-the-curly-brackets">Q25. Modify the code above to make it into a function called <code>time_converter</code>. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that convert <code>number_of_seconds</code> into <code>hours</code>, <code>minutes</code>, and <code>seconds</code>, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, use relevant examples for testing (0, 3600, another). Remember to indent any code inside the curly brackets.</h4>
+<h4 id="q26-write-your-own-function-for-converting-distances-between-different-units-your-function-should-take-the-distance-in-kilometres-as-input-and-return-the-distance-in-miles-as-output-1-kilometre-is-06213712-miles-note-floor-wont-be-needed-in-the-calculations-here-remember-to-clearly-commentannotate-your-code-and-make-appropriate-use-of-whitespace-including-indentation-and-newlines">Q26. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (<a href="https://en.wikipedia.org/wiki/Mile">1 kilometre is 0.6213712 miles</a>). Note: <code>floor</code> won't be needed in the calculations here. Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.</h4>
+<hr />
+<h3 id="more-complex-functions">More complex functions</h3>
+<p>Functions can be very useful when you have to do the same calculation many times. We will now consider a hypothetical experiment in which we are measuring the flight speed of bees through flight tunnels.</p>
+<p>We would like to measure the flight speed of the bees in meters per second. Annoyingly, the timer we used gave readings with the format <code>hours:minutes:seconds</code>, rather than just the total number of seconds.</p>
+<p>Fortunately, functions in R can take more than one argument:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span><span class="w"> </span><span class="n">input2</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1"># code including input1, input2, ...</span>
+<span class="w">    </span><span class="kr">return</span><span class="p">(</span><span class="n">something</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="q27-make-a-function-that-takes-hours-minutes-and-seconds-as-inputs-and-outputs-the-total-number-of-seconds-make-sure-it-has-three-arguments-and-a-descriptive-name-test-the-function-with-a-range-of-times-for-which-you-know-the-answer">Q27. Make a function that takes <code>hours</code>, <code>minutes</code> and <code>seconds</code> as inputs, and outputs the total number of seconds. Make sure it has three arguments and a descriptive name. Test the function with a range of times for which you know the answer.</h4>
+<p>In our experiment, most bees flew through the test tunnel in under an hour. It is time consuming to include the argument <code>hours = 0</code> every time that we call the function.</p>
+<p>A neat thing about functions is that we can set default values for any argument, using the syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">,</span><span class="w"> </span><span class="n">input15</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">default</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># code including input1, input2, ..., input15</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">something</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The default argument(s) is generally placed at the end of the argument list.</p>
+<h4 id="q28-make-the-hours-and-minutes-arguments-be-defined-as-0-by-default-in-your-function-run-the-function-without-supplying-these-two-arguments-then-run-it-again-with-using-a-range-of-hours-and-minutes">Q28. Make the <code>hours</code> and <code>minutes</code> arguments be defined as 0 by default in your function. Run the function without supplying these two arguments, then run it again with using a range of <code>hours</code> and <code>minutes</code>.</h4>
+<p>Finally, we would like to create a function to measure the flight speed of the bees in meters per second. This function should:</p>
+<ul>
+<li>Take the tunnel length (in meters), hours, minutes and seconds as arguments</li>
+<li>Use your previous function to convert hours, minutes and seconds to seconds</li>
+<li>Calculate the speed of the bees in meters per second</li>
+<li>Return the speed of the bees</li>
+</ul>
+<h4 id="q29-create-this-function-test-it-with-a-control-values-for-which-you-know-the-answer">Q29. Create this function. Test it with a control (values for which you know the answer).</h4>
+<h4 id="q30-use-the-function-to-measure-the-speed-of-the-bees-with-the-following-measurements">Q30. Use the function to measure the speed of the bees with the following measurements:</h4>
+<table>
+<thead>
+<tr>
+<th>Distance (m)</th>
+<th>Time (hours:minutes:seconds)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>00:00:08</td>
+</tr>
+<tr>
+<td>10</td>
+<td>00:00:40</td>
+</tr>
+<tr>
+<td>300</td>
+<td>00:05:00</td>
+</tr>
+<tr>
+<td>800</td>
+<td>01:06:40</td>
+</tr>
+</tbody>
+</table>
+<h4 id="q31-can-you-think-of-parameter-values-that-would-make-your-function-not-work-properly-what-happens-if-you-try-running-the-function-with-these-values">Q31. Can you think of parameter values that would make your function not work properly? What happens if you try running the function with these values?</h4>
+<hr />
+<h3 id="functions-with-other-types-of-input">Functions with other types of input</h3>
+<p>Note that functions do not have to take single numbers as input. They can take vectors, matrices, data frames, or any other type of object, and they can also take character and logical data as well as numerical. For example, the <code>mean</code> function we used earlier took the vector <code>x &lt;- c(2, 3, 4, 5)</code> as input, which is a single vector with four numbers.</p>
+<h4 id="q32-write-a-function-that-takes-a-vector-of-words-as-input-and-outputs-the-number-of-characters-in-the-longest-word-hint-you-are-going-to-need-to-find-out-how-r-counts-the-number-of-characters-in-words-and-how-it-finds-the-maximum-value-in-a-vector-use-an-internet-search-engine">Q32. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use an internet search engine!</h4>
+<hr />
+<h2 id="loops">Loops</h2>
+<p>Imagine that you need to run the function <code>time_converter</code> on different numbers. You could type <code>time_converter</code> many different times, each time with a different number. But now imagine you had to type that thousands of times. Not fun.</p>
+<p>Fortunately, computers were built to perform same tasks over and over again many times. They do this using a construct called a <em>loop</em>. Although there are several types of loops, we are going to learn about the 'for loop'. It works this way:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## For loop example</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">seconds</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">2000</span><span class="p">,</span><span class="w"> </span><span class="m">3000</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">time_in_hours</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">time_converter</span><span class="p">(</span><span class="n">number_of_seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seconds</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">time_in_hours</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The variable <code>seconds</code> only exists within the loop. The loop will run 3 times. The first time, <code>seconds</code> will take the first value from the vector <code>(1000, 2000, 3000)</code>, i.e., <code>1000</code>. R will run through the loop, computing <code>time_in_hours</code> and printing it. When R starts running through the loop the second time, <code>seconds</code> will have the value <code>2000</code>, and the previously calculated <code>time_in_hours</code> will have been forgotten.  R will run through the loop, computing <code>time_in_hours</code> and printing it. The third time, same thing again, but <code>seconds</code> will start with the value <code>3000</code>.</p>
+<h3 id="slightly-more-complex-loops">Slightly more complex loops</h3>
+<p>There are some interesting ways in which we can stretch our understanding of loops. First of all, it is important to recognise that the values that we are iterating over can be anything that goes in a vector. The vector can be defined outside the loop definition line:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## Character based loop values</span>
+<span class="n">greetings</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Hey&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Aloha&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Howdy&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="s">&quot;Yooooo!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Wassup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;What&#39;s shakin?&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="s">&quot;yello!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Greetings&quot;</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;Dude, wake up!&quot;</span><span class="p">)</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">word</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">greetings</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; - said the giggling frog&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="c1">## Sequential loop values</span>
+<span class="n">my_favourite_numbers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">42</span><span class="p">,</span><span class="w"> </span><span class="m">3.14</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">69</span><span class="p">,</span><span class="w"> </span><span class="m">6.626e-34</span><span class="p">,</span><span class="w"> </span><span class="m">1024</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">2.718281828</span><span class="p">,</span><span class="w"> </span><span class="m">666</span><span class="p">,</span><span class="w"> </span><span class="m">1.61803398</span><span class="p">,</span><span class="w"> </span><span class="m">99</span><span class="p">)</span>
+
+<span class="c1"># set the cumulative sum at zero before the loop starts</span>
+<span class="n">cumulative_sum</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span>
+
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">my_favourite_numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># print the sentence</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;is my favourite number&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">))</span>
+
+<span class="w">  </span><span class="c1"># add favourite numbers, sequentially</span>
+<span class="w">  </span><span class="n">cumulative_sum</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cumulative_sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">value</span>
+
+<span class="w">  </span><span class="c1"># print the cumulative sum</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The sum of my favourite numbers is:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cumulative_sum</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="c1">## Looping through the positions of each element of the vector (the index, or position)</span>
+<span class="n">foods</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;tempeh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;beyond&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;beans&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tofu&quot;</span><span class="p">)</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">position</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nf">seq_len</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">foods</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">current_food</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">foods</span><span class="p">[</span><span class="n">position</span><span class="p">]</span>
+<span class="w">  </span><span class="nf">message</span><span class="p">(</span><span class="s">&quot;At position &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; we have &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">current_food</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="storing-loop-results">Storing loop results</h3>
+<p>You will often want to do more than just print the loop results. For example, you may want to keep them in a separate variable. Check the following example. What does <code>phrases</code> look like after the 4th iteration?</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## Vector to loop through</span>
+<span class="n">practical_attributes</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;great&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;deeply distressing&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;very long&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;amazeballs!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;informative&quot;</span><span class="p">)</span>
+
+<span class="c1">## Empty vector to store the loop results in</span>
+<span class="n">phrases</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span>
+
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">practical_attribute</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">practical_attributes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">phrase</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;This practical is&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">practical_attribute</span><span class="p">)</span>
+<span class="w"> </span><span class="c1"># Add the loop result to end of the vector of results</span>
+<span class="w"> </span><span class="n">phrases</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">append</span><span class="p">(</span><span class="n">phrases</span><span class="p">,</span><span class="w"> </span><span class="n">phrase</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A different way of approaching a for loop is to loop through the positions of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector that we are looping through. We then use the position to 'populate' it:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## Vector to loop through</span>
+<span class="n">practical_attributes</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;great&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;deeply distressing&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;very long&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;amazeballs!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;informative&quot;</span><span class="p">)</span>
+
+<span class="c1">## Vector with empty elements (as long as practical_attributes)</span>
+<span class="n">phrases</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">practical_attributes</span><span class="p">))</span>
+
+<span class="c1">## Loop through the position rather than the vector</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">position</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">practical_attributes</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">## Create phrase, getting attribute from practical_attributes[i]</span>
+<span class="w">  </span><span class="n">phrase</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;This practical is&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">practical_attributes</span><span class="p">[</span><span class="n">position</span><span class="p">])</span>
+
+<span class="w">  </span><span class="c1">## Add phrase to the right position of the results vector</span>
+<span class="w">  </span><span class="n">phrases</span><span class="p">[</span><span class="n">position</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">phrase</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>It is important to understand these two approaches with loops: looping through items vs. looping through positions. In some contexts it is easier to use the first approach; in other contexts the second is easier. Once you are comfortable with loops, have a go at the following task:</p>
+<h4 id="q33-write-a-loop-that-iterates-over-the-colours-red-green-blue-yellow-orange-purple-pink-and-prints-out-the-position-ie-the-position-of-the-colour-in-the-vector-and-the-colour-itself-this-should-be-done-in-human-readable-format-ie-the-colour-red-is-in-position-1-in-the-vector-the-colour-blue-is-in-position-2-in-the-vector-and-so-on-make-sure-to-indent-the-code-appropriately-between-the-curly-brackets">Q33. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (i.e. the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.</h4>
+<hr />
+<h3 id="using-loops">Using loops</h3>
+<p>For the following exercice, imagine that instead of buying a coffee, you deposit the £2.50 you would have spent into a savings account. The account has an annual interest rate of 5%, which is deposited into the account. You do not take any money out of the account for 20 years.</p>
+<h4 id="q34-use-a-for-loop-to-calculate-how-much-money-there-is-in-the-account-after-20-years">Q34. Use a <code>for</code> loop to calculate how much money there is in the account after 20 years.</h4>
+<h4 id="q35-create-a-plot-showing-the-amount-of-money-in-the-account-for-each-year-hint-if-you-have-not-already-done-so-you-will-need-to-create-a-vector-to-store-the-account-balance-for-each-year-you-can-use-the-base-r-function-plot-or-if-you-are-feeling-adventurous-install-the-ggplot2-package-and-use-that-see-httpsggplot2tidyverseorgarticlesggplot2html-for-more-information">Q35. Create a plot showing the amount of money in the account for each year. Hint: If you have not already done so, you will need to create a vector to store the account balance for each year. You can use the base R function <code>plot()</code>, or, if you are feeling adventurous, install the "ggplot2" package and use that! See <a href="https://ggplot2.tidyverse.org/articles/ggplot2.html">https://ggplot2.tidyverse.org/articles/ggplot2.html</a> for more information.</h4>
+<h4 id="q36-write-a-loop-that-calculates-the-population-size-depending-on-the-reproduction-rate-over-a-period-of-20-years-store-the-population-value-for-each-iteration-of-the-loop-in-a-separate-vector-use-the-information-below-to-create-your-answer">Q36. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector. Use the information below to create your answer:</h4>
+<ul>
+<li>Use a starting population size of 1000.</li>
+<li>Every year,</li>
+<li>obtain a random reproduction rate (e.g., <code>reproduction_rate &lt;- rnorm(n = 1, mean = 1, sd = 0.4)</code>.</li>
+<li>Update the population size value accordingly.</li>
+<li>Print a summary of what happened.</li>
+<li>Store each year's population in an external vector.</li>
+<li>Once you have all the population sizes, plot them.</li>
+</ul>
+<h3 id="nested-loops">Nested Loops</h3>
+<p>Another important way of extending loops is to consider nested loops - in other words, loops within other loops! Have a look at the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="n">coffee</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;latte&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cappuccino&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;flat white&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cortado&quot;</span><span class="p">)</span>
+<span class="n">cafes</span><span class="w">   </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Infusion&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ground&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sugar Cube&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Foxcroft &amp; Ginger&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sweet&quot;</span><span class="p">)</span>
+
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">drink</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">coffees</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;I&#39;d like a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">drink</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;... Where can I go?&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">the_place</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">cafes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;You can go to&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">the_place</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;to have a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">drink</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Here we have one loop (with position <code>the_place</code>) nested within another loop (with position <code>drink</code>). We have also defined the values that <code>the_place</code> and <code>drink</code> can take. With a pen and paper, determine what is the 1st line printed, and then what is the 10th line printed? Evaluate this code and try to make sense of the output. Fiddle around with the different elements of this code until you are comfortable with nested loops. Warning - loops require your computer to perform many operations, and as such it is quite easy to crash R using loops. A simple block of code evaluated 100,000 times amounts to quite a big job. If you want to force R to exit a loop part way through, simply press 'Esc' (or control-C). Nested loops are particularly hazardous!</p>
+<h4 id="q37-create-a-nested-loop-the-outer-loop-should-iterate-over-the-words-angry-lazy-and-happy-the-inner-loop-should-iterate-over-the-words-birds-dogs-and-horses-the-code-inside-the-inner-loop-should-print-out-a-vector-containing-the-values-of-both-loops-for-example-angry-and-birds-in-the-first-instance">Q37. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the values of both loops (for example "Angry" and "birds" in the first instance).</h4>
+<h4 id="q38-look-again-at-the-code-you-wrote-in-q37-did-you-sufficiently-indent-your-code-like-in-the-example-of-a-nested-loop-above-so-that-it-is-easy-to-see-which-lines-of-code-are-executed-at-which-point-of-the-different-loops-if-not-do-it-now-and-continue-doing-it-for-the-next-questions-as-well">Q38. Look again at the code you wrote in Q37. Did you sufficiently indent your code (like in the example of a nested loop above), so that it is easy to see which lines of code are executed at which point of the different loops? If not, DO IT NOW! And continue doing it for the next questions as well.</h4>
+<hr />
+<h1 id="part-3-bonus-questions">Part 3 - Bonus Questions</h1>
+<h4 id="bonus-q39-write-a-function-that-converts-a-short-dna-sequence-of-15-bases-eg-acctgtcatcatccc-to-rna-and-splits-the-string-into-codon-triplets-you-will-need-to">Bonus Q39. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into codon triplets. You will need to:</h4>
+<ul>
+<li>replace T with U  (thymine with uracil to convert DNA to RNA)</li>
+<li>use <code>substring()</code> to split the sequence into triplets and <code>seq()</code> within <code>substring()</code></li>
+<li>return the RNA triplets string</li>
+</ul>
+<p>Note <code>substring()</code> takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are.  In <code>seq()</code> you will also indicate you want triplets.</p>
+<p>As an example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dna_string</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;AAATTT&quot;</span><span class="p">)</span>
+<span class="nf">substring</span><span class="p">(</span><span class="n">dna_string</span><span class="p">,</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">))</span>
+</code></pre></div>
+<h4 id="bonus-q40-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence">Bonus Q40. Write a function to obtain the reverse-complement of a DNA sequence.</h4>
+<p>You can use this sequence (copy and paste it into R): <code>"ATTACGACGCGATTCCCGGTTAATCGAATTCCCA"</code>. As an example, the reverse-complement of ATGC is GCAT.</p>
+<p>The tricky part here is reversing a single string of characters. Search around for <code>strsplit</code>.  You will need to:</p>
+<ul>
+<li>replace bases with their complement (you can use <code>gsub</code>, judiciously replacing uppercase characters with lowercase characters (or vice-versa)).</li>
+<li>split the string of DNA bases into separate characters with <code>strsplit</code>. Unfortunately, <code>strsplit</code> confusingly returns a list, so you will need to use <code>unlist()</code> to obtain a string again.</li>
+<li>reverse the sequence.</li>
+<li>remove the spaces to get your single string of DNA bases (look into the help files for the <code>paste()</code> function).</li>
+<li>return the reverse-complement sequence.</li>
+</ul>
+<h4 id="bonus-q41-write-a-function-that-assesses-whether-a-given-word-or-phrase-is-a-palindrome">Bonus Q41. Write a function that assesses whether a given word or phrase is a palindrome.</h4>
+<p>Palindromes are arrangements of words or letters which read the same way whether you read them backwards or forwards, such as the phrase <em>never odd or even</em> (if you remove the spaces). In molecular biology, many restriction enzyme sites are palindromic.</p>
+<p>Before starting to code, think about the steps that you would need to go through in order to judge if something is a mirror palindrome:</p>
+<ul>
+<li>Write these steps as comments in an R script window (or a piece of paper) , then think about how you can tell the computer to execute those steps.</li>
+<li>Only start writing the code when you have a plan of what you want to do.</li>
+<li>Write your code as a one-off first - without considering that you'll do a function.</li>
+<li>Only once you're happy with how things work, sandwich your code into a function format.</li>
+<li>Use easy test cases where you know the answer in order to check that your function works.</li>
+<li>The <code>strsplit</code> helpsheet is particularly interesting in relation to this question.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.tooltips", "navigation.instant", "navigation.tabs", "toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

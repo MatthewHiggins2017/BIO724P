@@ -1,0 +1,1317 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../R_Crash_Course_Practical/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>R Crash Course Practical - Solutions - BIO773P</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-1-answers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BIO773P" class="md-header__button md-logo" aria-label="BIO773P" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BIO773P
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              R Crash Course Practical - Solutions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../R_Crash_Course_Practical/" class="md-tabs__link">
+          
+  
+  
+  Practicals
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BIO773P" class="md-nav__button md-logo" aria-label="BIO773P" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    BIO773P
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming in R
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UsingR/Cloud_R_AppsAnywhere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R via Apps Anywhere
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UsingR/Local_R_Install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Install R Locally
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Practicals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Practicals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_Crash_Course_Practical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R Crash Course Practical
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    R Crash Course Practical - Solutions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    R Crash Course Practical - Solutions
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1-create-a-new-variable-z-out-of-the-values-in-x-and-y-you-can-choose-any-formula-you-want-for-z-as-long-as-it-contains-both-x-and-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1. Create a new variable, z, out of the values in x and y. You can choose any formula you want for z, as long as it contains both x and y.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q2-let-us-define-the-variable-x-10-what-will-the-outcome-of-the-following-expressions-be" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2. Let us define the variable x &lt;- 10. What will the outcome of the following expressions be?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q3-below-are-some-of-the-rules-that-logical-operators-follow-write-in-plain-english-what-it-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3. Below are some of the rules that logical operators follow. Write in plain English what it means.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q4-given-three-variables-x-y-and-z-how-would-you-write-the-following-sentence-in-a-logical-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4. Given three variables (x, y and z), how would you write the following sentence in a logical expression?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q5-what-number-would-you-obtain-if-you-typed-seq_vec23-in-the-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5. What number would you obtain if you typed seq_vec2[3] in the console?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q6-what-happens-when-you-type-seq_vec2seqfrom-1-to-5-in-the-console-and-hit-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q6. What happens when you type seq_vec2[seq(from = 1, to = 5)] in the console and hit return?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q7-how-would-you-retrieve-just-the-8th-13th-and-21st-elements-of-seq_vec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q7. How would you retrieve just the 8th, 13th and 21st elements of seq_vec2?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q8-try-evaluating-combined_vec2-numeric_vec-seq_vec2-in-the-console-what-happens-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q8. Try evaluating combined_vec2 &lt;- numeric_vec * seq_vec2 in the console. What happens? Why?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q9-what-do-you-type-to-find-the-length-of-a-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q9. What do you type to find the length of a vector?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q10-in-fact-compatible-does-not-mean-that-vectors-have-to-be-exactly-the-same-length-try-evaluating-combined_vec3-numeric_vec-rep_vec-in-the-console-and-look-at-the-result-what-is-the-reasoning-behind-the-values-produced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating combined_vec3 &lt;- numeric_vec * rep_vec in the console, and look at the result. What is the reasoning behind the values produced?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q11-what-happens-when-you-evaluate-rbindnumeric_vec-seq_vec2-what-happens-when-you-evaluate-cbindnumeric_vec-seq_vec2-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q11. What happens when you evaluate rbind(numeric_vec, seq_vec2)? What happens when you evaluate cbind(numeric_vec, seq_vec2)? Why?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q12-when-you-evaluate-rbindnumeric_vec-seq_vec2-you-get-a-warning-message-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q12. When you evaluate rbind(numeric_vec, seq_vec2) you get a warning message. Why?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q13-what-happens-when-you-evaluate-rbindnumeric_vec-rep_vec-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q13. What happens when you evaluate rbind(numeric_vec, rep_vec)? Why?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q14-how-do-you-retrieve-the-2nd-column-of-matrix2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q14. How do you retrieve the 2nd column of matrix2?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q15-the-variable-matrix1-describes-a-matrix-produced-by-the-following-code-matrix1-matrixdata-seq_lenlengthout-50-nrow-10-ncol-5-what-number-would-we-expect-to-see-when-we-evaluate-matrix11-2-try-to-answer-this-without-evaluating-the-code-why-not-a-different-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q15. The variable matrix1 describes a matrix produced by the following code: matrix1 &lt;- matrix(data = seq_len(length.out = 50), nrow = 10, ncol = 5). What number would we expect to see when we evaluate matrix1[1, 2]? Try to answer this without evaluating the code! Why not a different number?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q16-which-of-these-commands-would-output-the-2nd-and-4th-columns-of-matrix1-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q16. Which of these commands would output the 2nd and 4th columns of matrix1 only?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q17-write-your-own-script-for-creating-a-matrix-from-three-separate-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q17. Write your own script for creating a matrix from three separate vectors.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q18-how-would-you-subset-the-variable-puromycin-to-return-only-those-fields-for-which-the-concentration-is-greater-than-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q18. How would you subset the variable Puromycin to return only those fields for which the concentration is greater than 0.1?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q19-what-is-the-average-mean-concentration-for-these-cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q19. What is the average (mean) concentration for these cells?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q20-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-cells-were-not-treated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q20. How would you subset the variable Puromycin to return only the fields for which the cells were not treated?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q21-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-05-and-the-rate-is-greater-than-100" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q21. How would you subset the variable Puromycin to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q22-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-greater-than-02-and-the-cells-have-been-treated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q22. How would you subset the variable Puromycin to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q23-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-01-or-greater-than-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q23. How would you subset the variable Puromycin to return only the fields for which the concentration is less than 0.1 or greater than 0.2?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q24-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-02-and-the-rate-is-less-than-70-and-the-cells-have-been-treated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q24. How would you subset the variable Puromycin to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q25-write-your-own-well-annotated-and-fully-functional-script-for-calculating-the-volume-of-a-rectangular-room-with-the-following-dimensions-length-5m-width-4m-height-3m" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q25. Write your own well annotated and fully functional script for calculating the volume of a rectangular room with the following dimensions: length: 5m, width: 4m, height: 3m
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="part-1-answers"><strong>Part 1 - Answers</strong></h1>
+<h2 id="q1-create-a-new-variable-z-out-of-the-values-in-x-and-y-you-can-choose-any-formula-you-want-for-z-as-long-as-it-contains-both-x-and-y">Q1. Create a new variable, z, out of the values in x and y. You can choose any formula you want for z, as long as it contains both x and y.</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Using the values x &lt;- 5 and y &lt;- 225 defined earlier</span>
+<span class="n">z</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<h2 id="q2-let-us-define-the-variable-x-10-what-will-the-outcome-of-the-following-expressions-be">Q2. Let us define the variable x &lt;- 10. What will the outcome of the following expressions be?</h2>
+<ul>
+<li><code>(x &gt; 5)</code> → Answer: <strong>TRUE</strong></li>
+<li><code>(x &lt;= 10)</code> → Answer: <strong>TRUE</strong>  </li>
+<li><code>(x != 10)</code> → Answer: <strong>FALSE</strong></li>
+<li><code>(x &lt; 5) &amp; (x &lt; 105)</code> → Answer: <strong>FALSE</strong></li>
+<li><code>(x &lt; 4) | (x &gt; 14) | (x == 10)</code> → Answer: <strong>TRUE</strong></li>
+</ul>
+<h2 id="q3-below-are-some-of-the-rules-that-logical-operators-follow-write-in-plain-english-what-it-means">Q3. Below are some of the rules that logical operators follow. Write in plain English what it means.</h2>
+<ul>
+<li><code>TRUE &amp; TRUE</code> is <code>TRUE</code> → <strong>Both conditions must be true for the result to be true</strong></li>
+<li><code>TRUE &amp; FALSE</code> is <code>FALSE</code> → <strong>If any condition is false when using AND, the result is false</strong></li>
+<li><code>FALSE &amp; TRUE</code> is <code>FALSE</code> → <strong>If any condition is false when using AND, the result is false</strong>  </li>
+<li><code>TRUE | FALSE</code> is <code>TRUE</code> → <strong>If at least one condition is true when using OR, the result is true</strong></li>
+<li><code>FALSE | TRUE</code> is <code>TRUE</code> → <strong>If at least one condition is true when using OR, the result is true</strong></li>
+</ul>
+<h2 id="q4-given-three-variables-x-y-and-z-how-would-you-write-the-following-sentence-in-a-logical-expression">Q4. Given three variables (x, y and z), how would you write the following sentence in a logical expression?</h2>
+<p><em>The variable x is less than variable y, or greater than variable z?</em></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q5-what-number-would-you-obtain-if-you-typed-seq_vec23-in-the-console">Q5. What number would you obtain if you typed <code>seq_vec2[3]</code> in the console?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">seq_vec2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.25</span><span class="p">)</span>
+<span class="n">seq_vec2</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="w">  </span><span class="c1"># Result: 0.5</span>
+</code></pre></div>
+<h2 id="q6-what-happens-when-you-type-seq_vec2seqfrom-1-to-5-in-the-console-and-hit-return">Q6. What happens when you type <code>seq_vec2[seq(from = 1, to = 5)]</code> in the console and hit return?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">seq_vec2</span><span class="p">[</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)]</span><span class="w">  </span><span class="c1"># Returns the first 5 elements: 0.00 0.25 0.50 0.75 1.00</span>
+</code></pre></div>
+<h2 id="q7-how-would-you-retrieve-just-the-8th-13th-and-21st-elements-of-seq_vec2">Q7. How would you retrieve just the 8th, 13th and 21st elements of <code>seq_vec2</code>?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">seq_vec2</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">13</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">)]</span>
+</code></pre></div>
+<h2 id="q8-try-evaluating-combined_vec2-numeric_vec-seq_vec2-in-the-console-what-happens-why">Q8. Try evaluating <code>combined_vec2 &lt;- numeric_vec * seq_vec2</code> in the console. What happens? Why?</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># This will produce a warning because the lengths are incompatible</span>
+<span class="c1"># numeric_vec has 6 elements, seq_vec2 has 41 elements</span>
+<span class="c1"># R will recycle the shorter vector, but since 41 is not a multiple of 6, it gives a warning</span>
+<span class="n">combined_vec2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">numeric_vec</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">seq_vec2</span>
+</code></pre></div>
+<h2 id="q9-what-do-you-type-to-find-the-length-of-a-vector">Q9. What do you type to find the length of a vector?</h2>
+<div class="highlight"><pre><span></span><code><span class="nf">length</span><span class="p">(</span><span class="n">vector_name</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q10-in-fact-compatible-does-not-mean-that-vectors-have-to-be-exactly-the-same-length-try-evaluating-combined_vec3-numeric_vec-rep_vec-in-the-console-and-look-at-the-result-what-is-the-reasoning-behind-the-values-produced">Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating <code>combined_vec3 &lt;- numeric_vec * rep_vec</code> in the console, and look at the result. What is the reasoning behind the values produced?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">combined_vec3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">numeric_vec</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rep_vec</span>
+<span class="c1"># Both vectors have 6 and 12 elements respectively</span>
+<span class="c1"># Since 12 is a multiple of 6, R recycles numeric_vec twice to match the length</span>
+<span class="c1"># Each element of numeric_vec is multiplied by the corresponding element of rep_vec (which is all 2s)</span>
+</code></pre></div>
+<h2 id="q11-what-happens-when-you-evaluate-rbindnumeric_vec-seq_vec2-what-happens-when-you-evaluate-cbindnumeric_vec-seq_vec2-why">Q11. What happens when you evaluate <code>rbind(numeric_vec, seq_vec2)</code>? What happens when you evaluate <code>cbind(numeric_vec, seq_vec2)</code>? Why?</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># rbind(numeric_vec, seq_vec2) creates a matrix with 2 rows</span>
+<span class="c1"># It will give a warning because the vectors have different lengths (6 vs 41)</span>
+<span class="c1"># The shorter vector will be recycled</span>
+
+<span class="c1"># cbind(numeric_vec, seq_vec2) creates a matrix with 2 columns  </span>
+<span class="c1"># It will also give a warning for the same reason</span>
+</code></pre></div>
+<h2 id="q12-when-you-evaluate-rbindnumeric_vec-seq_vec2-you-get-a-warning-message-why">Q12. When you evaluate <code>rbind(numeric_vec, seq_vec2)</code> you get a warning message. Why?</h2>
+<p>The warning occurs because <code>numeric_vec</code> has 6 elements while <code>seq_vec2</code> has 41 elements. Since 41 is not a multiple of 6, R cannot evenly recycle the shorter vector to match the longer one.</p>
+<h2 id="q13-what-happens-when-you-evaluate-rbindnumeric_vec-rep_vec-why">Q13. What happens when you evaluate <code>rbind(numeric_vec, rep_vec)</code>? Why?</h2>
+<div class="highlight"><pre><span></span><code><span class="nf">rbind</span><span class="p">(</span><span class="n">numeric_vec</span><span class="p">,</span><span class="w"> </span><span class="n">rep_vec</span><span class="p">)</span>
+<span class="c1"># This works without warning because both vectors have compatible lengths</span>
+<span class="c1"># numeric_vec has 6 elements, rep_vec has 12 elements</span>
+<span class="c1"># 12 is a multiple of 6, so R can recycle numeric_vec evenly</span>
+</code></pre></div>
+<h2 id="q14-how-do-you-retrieve-the-2nd-column-of-matrix2">Q14. How do you retrieve the 2nd column of <code>matrix2</code>?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">matrix2</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="q15-the-variable-matrix1-describes-a-matrix-produced-by-the-following-code-matrix1-matrixdata-seq_lenlengthout-50-nrow-10-ncol-5-what-number-would-we-expect-to-see-when-we-evaluate-matrix11-2-try-to-answer-this-without-evaluating-the-code-why-not-a-different-number">Q15. The variable <code>matrix1</code> describes a matrix produced by the following code: <code>matrix1 &lt;- matrix(data = seq_len(length.out = 50), nrow = 10, ncol = 5)</code>. What number would we expect to see when we evaluate <code>matrix1[1, 2]</code>? Try to answer this without evaluating the code! Why not a different number?</h2>
+<p><strong>Answer:</strong> We would expect to see <strong>11</strong>.</p>
+<p><strong>Reasoning:</strong> The <code>matrix()</code> function fills matrices by column by default. With <code>seq_len(50)</code> creating numbers 1 to 50, the first column gets 1-10, the second column gets 11-20, etc. So <code>matrix1[1, 2]</code> (first row, second column) would be 11.</p>
+<h2 id="q16-which-of-these-commands-would-output-the-2nd-and-4th-columns-of-matrix1-only">Q16. Which of these commands would output the 2nd and 4th columns of matrix1 only?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">matrix1</span><span class="p">[,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)]</span><span class="w">  </span><span class="c1"># This is the correct answer</span>
+</code></pre></div>
+<p>The other options are incorrect:
+- <code>matrix1[2, 4]</code> - gives one element, not columns
+- <code>matrix1(, (2, 4))</code> - incorrect syntax<br />
+- <code>matrix1[c(2, 4), ]</code> - gives rows, not columns</p>
+<h2 id="q17-write-your-own-script-for-creating-a-matrix-from-three-separate-vectors">Q17. Write your own script for creating a matrix from three separate vectors.</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the first vector with numbers 1 to 50</span>
+<span class="n">vec1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># Create the second vector with the squares of vec1  </span>
+<span class="n">vec2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">vec1</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="m">2</span>
+
+<span class="c1"># Create the third vector with the cubes of vec1</span>
+<span class="n">vec3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">vec1</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="m">3</span>
+
+<span class="c1"># Create a matrix with vec1, vec2, and vec3 as rows</span>
+<span class="n">my_matrix</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span><span class="w"> </span><span class="n">vec2</span><span class="p">,</span><span class="w"> </span><span class="n">vec3</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q18-how-would-you-subset-the-variable-puromycin-to-return-only-those-fields-for-which-the-concentration-is-greater-than-01">Q18. How would you subset the variable <code>Puromycin</code> to return only those fields for which the concentration is greater than 0.1?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">high_conc</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">Puromycin</span><span class="p">,</span><span class="w"> </span><span class="n">conc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0.1</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q19-what-is-the-average-mean-concentration-for-these-cells">Q19. What is the average (mean) concentration for these cells?</h2>
+<div class="highlight"><pre><span></span><code><span class="nf">mean</span><span class="p">(</span><span class="n">high_conc</span><span class="o">$</span><span class="n">conc</span><span class="p">)</span>
+<span class="c1"># Answer: 0.4573333</span>
+</code></pre></div>
+<h2 id="q20-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-cells-were-not-treated">Q20. How would you subset the variable <code>Puromycin</code> to return only the fields for which the cells were not treated?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">untreated</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">Puromycin</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;untreated&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q21-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-05-and-the-rate-is-greater-than-100">Q21. How would you subset the variable <code>Puromycin</code> to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">conc_rate_filt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">Puromycin</span><span class="p">,</span><span class="w"> </span><span class="n">conc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0.5</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q22-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-greater-than-02-and-the-cells-have-been-treated">Q22. How would you subset the variable <code>Puromycin</code> to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">conc_state_filt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">Puromycin</span><span class="p">,</span><span class="w"> </span><span class="n">conc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0.2</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;treated&quot;</span><span class="p">)</span><span class="w">  </span>
+</code></pre></div>
+<h2 id="q23-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-01-or-greater-than-02">Q23. How would you subset the variable <code>Puromycin</code> to return only the fields for which the concentration is less than 0.1 or greater than 0.2?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">conc_filt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">Puromycin</span><span class="p">,</span><span class="w"> </span><span class="n">conc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0.1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">conc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0.2</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q24-how-would-you-subset-the-variable-puromycin-to-return-only-the-fields-for-which-the-concentration-is-less-than-02-and-the-rate-is-less-than-70-and-the-cells-have-been-treated">Q24. How would you subset the variable <code>Puromycin</code> to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?</h2>
+<div class="highlight"><pre><span></span><code><span class="n">conc_rate_state_filt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">Puromycin</span><span class="p">,</span><span class="w"> </span><span class="n">conc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0.2</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">70</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;treated&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q25-write-your-own-well-annotated-and-fully-functional-script-for-calculating-the-volume-of-a-rectangular-room-with-the-following-dimensions-length-5m-width-4m-height-3m">Q25. Write your own well annotated and fully functional script for calculating the volume of a rectangular room with the following dimensions: length: 5m, width: 4m, height: 3m</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the dimensions of the room</span>
+<span class="n">length</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">5</span><span class="w">  </span><span class="c1"># Length in meters</span>
+<span class="n">width</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">4</span><span class="w">   </span><span class="c1"># Width in meters  </span>
+<span class="n">height</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">3</span><span class="w">  </span><span class="c1"># Height in meters</span>
+
+<span class="c1"># Calculate the volume using the formula: Volume = length * width * height</span>
+<span class="n">volume</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span>
+
+<span class="c1"># Display the result</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The volume of the room is&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cubic meters&quot;</span><span class="p">))</span>
+</code></pre></div>
+<hr />
+<h1 id="part-2-functions-loops"><strong>Part 2 - Functions &amp; Loops</strong></h1>
+<h2 id="q25-modify-the-code-above-to-make-it-into-a-function-called-time_converter-this-function-should-take-a-single-number-as-an-argument-the-number-of-seconds-we-want-to-convert-this-function-should-also-include-the-three-lines-of-code-that-convert-number_of_seconds-into-hours-minutes-and-seconds-the-line-of-code-that-merges-these-three-variables-into-one-vector-and-a-line-returning-this-vector-as-the-output-of-the-function-once-you-created-the-function-and-loaded-it-into-r-use-relevant-examples-for-testing-0-3600-another-remember-to-indent-any-code-inside-the-curly-brackets">Q25. Modify the code above to make it into a function called <code>time_converter</code>. This function should take a single number as an argument (the number of seconds we want to convert). This function should also include the three lines of code that convert <code>number_of_seconds</code> into <code>hours</code>, <code>minutes</code>, and <code>seconds</code>, the line of code that merges these three variables into one vector, and a line returning this vector as the output of the function. Once you created the function and loaded it into R, use relevant examples for testing (0, 3600, another). Remember to indent any code inside the curly brackets.</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the time_converter function</span>
+<span class="n">time_converter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">number_of_seconds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Convert number_of_seconds into hours, minutes, and seconds</span>
+<span class="w">  </span><span class="n">hours</span><span class="w">   </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="n">number_of_seconds</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">))</span>
+<span class="w">  </span><span class="n">minutes</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">floor</span><span class="p">((</span><span class="n">number_of_seconds</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">60</span><span class="p">)</span>
+<span class="w">  </span><span class="n">seconds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">number_of_seconds</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">((</span><span class="n">hours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">minutes</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span>
+
+<span class="w">  </span><span class="c1"># Create a single vector containing all three quantities</span>
+<span class="w">  </span><span class="n">outputs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Return the vector</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Test the function</span>
+<span class="nf">time_converter</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w">  </span><span class="c1">#Output: 0 0 0</span>
+<span class="nf">time_converter</span><span class="p">(</span><span class="m">3600</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 1 0 0</span>
+<span class="nf">time_converter</span><span class="p">(</span><span class="m">90</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 0 1 30</span>
+</code></pre></div>
+<h2 id="q26-write-your-own-function-for-converting-distances-between-different-units-your-function-should-take-the-distance-in-kilometres-as-input-and-return-the-distance-in-miles-as-output-1-kilometre-is-06213712-miles-note-floor-wont-be-needed-in-the-calculations-here-remember-to-clearly-commentannotate-your-code-and-make-appropriate-use-of-whitespace-including-indentation-and-newlines">Q26. Write your own function for converting distances between different units. Your function should take the distance in kilometres as input and return the distance in miles as output (1 kilometre is 0.6213712 miles). Note: <code>floor</code> won't be needed in the calculations here. Remember to clearly comment/annotate your code and make appropriate use of whitespace including indentation and newlines.</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the km_to_miles function</span>
+<span class="n">km_to_miles</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">kilometers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Conversion factor from kilometers to miles</span>
+<span class="w">  </span><span class="n">conversion_factor</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.6213712</span>
+
+<span class="w">  </span><span class="c1"># Convert kilometers to miles using the conversion factor</span>
+<span class="w">  </span><span class="n">miles</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">kilometers</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">conversion_factor</span>
+
+<span class="w">  </span><span class="c1"># Return the converted distance in miles</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">miles</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Test the function</span>
+<span class="nf">km_to_miles</span><span class="p">(</span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 62.13712</span>
+</code></pre></div>
+<h2 id="q27-make-a-function-that-takes-hours-minutes-and-seconds-as-inputs-and-outputs-the-total-number-of-seconds-make-sure-it-has-three-arguments-and-a-descriptive-name-test-the-function-with-a-range-of-times-for-which-you-know-the-answer">Q27. Make a function that takes <code>hours</code>, <code>minutes</code> and <code>seconds</code> as inputs, and outputs the total number of seconds. Make sure it has three arguments and a descriptive name. Test the function with a range of times for which you know the answer.</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define a function that converts hours, minutes, and seconds to total seconds</span>
+<span class="n">time_to_seconds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">seconds</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Calculate the total number of seconds</span>
+<span class="w">  </span><span class="n">total_seconds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">hours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">minutes</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">seconds</span>
+
+<span class="w">  </span><span class="c1"># Return the total number of seconds</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">total_seconds</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Test the function</span>
+<span class="nf">time_to_seconds</span><span class="p">(</span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w">  </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w">  </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 60</span>
+<span class="nf">time_to_seconds</span><span class="p">(</span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w">  </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 36010</span>
+<span class="nf">time_to_seconds</span><span class="p">(</span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 630</span>
+</code></pre></div>
+<h2 id="q28-make-the-hours-and-minutes-arguments-be-defined-as-0-by-default-in-your-function-run-the-function-without-supplying-these-two-arguments-then-run-it-again-with-using-a-range-of-hours-and-minutes">Q28. Make the <code>hours</code> and <code>minutes</code> arguments be defined as 0 by default in your function. Run the function without supplying these two arguments, then run it again with using a range of <code>hours</code> and <code>minutes</code>.</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define a function that converts hours, minutes, and seconds to total seconds</span>
+<span class="n">time_to_seconds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">seconds</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Calculate the total number of seconds</span>
+<span class="w">  </span><span class="n">total_seconds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">hours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">minutes</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">seconds</span>
+
+<span class="w">  </span><span class="c1"># Return the total number of seconds</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">total_seconds</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Test the function with default values</span>
+<span class="nf">time_to_seconds</span><span class="p">(</span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 100</span>
+<span class="nf">time_to_seconds</span><span class="p">(</span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 4210</span>
+<span class="nf">time_to_seconds</span><span class="p">(</span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="c1">#Output: 3661</span>
+</code></pre></div>
+<h2 id="q29-create-this-function-test-it-with-a-control-values-for-which-you-know-the-answer">Q29. Create this function. Test it with a control (values for which you know the answer).</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the function to calculate bee flight speed in meters per second</span>
+<span class="n">bee_flight_speed</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">tunnel_length</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Convert the given time to total seconds reusing the time_to_seconds function</span>
+<span class="w">  </span><span class="n">total_time_seconds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">time_to_seconds</span><span class="p">(</span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Calculate the speed (distance / time)</span>
+<span class="w">  </span><span class="n">speed_meters_per_second</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tunnel_length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total_time_seconds</span>
+
+<span class="w">  </span><span class="c1"># Return the speed in meters per second</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">speed_meters_per_second</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Test the function with known values</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">bee_flight_speed</span><span class="p">(</span><span class="n">tunnel_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w">  </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#Output: 0.8333333</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">bee_flight_speed</span><span class="p">(</span><span class="n">tunnel_length</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">))</span><span class="w"> </span><span class="c1">#Output: 1</span>
+</code></pre></div>
+<h2 id="q30-use-the-function-to-measure-the-speed-of-the-bees-with-the-following-measurements">Q30. Use the function to measure the speed of the bees with the following measurements:</h2>
+<table>
+<thead>
+<tr>
+<th>Distance (m)</th>
+<th>Time (hours:minutes:seconds)</th>
+<th>Speed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>00:00:08</td>
+<td>0.125</td>
+</tr>
+<tr>
+<td>10</td>
+<td>00:00:40</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>300</td>
+<td>00:05:00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>800</td>
+<td>00:06:40</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="q31-can-you-think-of-parameter-values-that-would-make-your-function-not-work-properly-what-happens-if-you-try-running-the-function-with-these-values">Q31. Can you think of parameter values that would make your function not work properly? What happens if you try running the function with these values?</h2>
+<p>A few situations:
+- If the distance is zero or negative, the function will return either a zero or negative speed, which doesn't make sense for a physical scenario.
+- If time is zero, we get a divide by zero and an error
+- If distance or time are entered as text e.g., "one hour" instead of numbers, things will crash</p>
+<h2 id="q32-write-a-function-that-takes-a-vector-of-words-as-input-and-outputs-the-number-of-characters-in-the-longest-word-hint-you-are-going-to-need-to-find-out-how-r-counts-the-number-of-characters-in-words-and-how-it-finds-the-maximum-value-in-a-vector-use-an-internet-search-engine">Q32. Write a function that takes a vector of words as input and outputs the number of characters in the longest word. Hint: you are going to need to find out how R counts the number of characters in words and how it finds the maximum value in a vector - use an internet search engine!</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the function to find the longest word length</span>
+<span class="n">longest_word_length</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Calculate the length of each word</span>
+<span class="w">  </span><span class="n">word_lengths</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">nchar</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Find the maximum length among the calculated lengths</span>
+<span class="w">  </span><span class="n">max_length</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">word_lengths</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Return the length of the longest word</span>
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">max_length</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="q33-write-a-loop-that-iterates-over-the-colours-red-green-blue-yellow-orange-purple-pink-and-prints-out-the-position-ie-the-position-of-the-colour-in-the-vector-and-the-colour-itself-this-should-be-done-in-human-readable-format-ie-the-colour-red-is-in-position-1-in-the-vector-the-colour-blue-is-in-position-2-in-the-vector-and-so-on-make-sure-to-indent-the-code-appropriately-between-the-curly-brackets">Q33. Write a loop that iterates over the colours red, green, blue, yellow, orange, purple, pink and prints out the position (i.e. the position of the colour in the vector) and the colour itself. This should be done in human-readable format (i.e. "the colour red is in position 1 in the vector", "the colour blue is in position 2 in the vector", and so on). Make sure to indent the code appropriately between the curly brackets.</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the vector of colors</span>
+<span class="n">colours</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;yellow&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;orange&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pink&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the number of colours</span>
+<span class="n">number_of_colours</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">colours</span><span class="p">)</span>
+
+<span class="c1"># Loop through color in the vector</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_colours</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Print the position and color in a human-readable format</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;The colour&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">colours</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;is in position&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;in the vector.&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="q34-use-a-for-loop-to-calculate-how-much-money-there-is-in-the-account-after-20-years">Q34. Use a <code>for</code> loop to calculate how much money there is in the account after 20 years.</h2>
+<div class="highlight"><pre><span></span><code><span class="n">initial_deposit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2.50</span>
+<span class="n">interest_rate</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.05</span>
+<span class="n">years</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">20</span>
+
+<span class="c1"># Set the initial balance</span>
+<span class="n">balance</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">initial_deposit</span>
+
+<span class="c1"># Use a for loop to calculate the balance after 20 years</span>
+<span class="n">possible_years</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">years</span><span class="p">)</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">possible_years</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">interest</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">interest_rate</span>
+<span class="w">  </span><span class="n">balance</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">interest</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="q35-create-a-plot-showing-the-amount-of-money-in-the-account-for-each-year-hint-if-you-have-not-already-done-so-you-will-need-to-create-a-vector-to-store-the-account-balance-for-each-year-you-can-use-the-base-r-function-plot-or-if-you-are-feeling-adventurous-install-the-ggplot2-package-and-use-that">Q35. Create a plot showing the amount of money in the account for each year. Hint: If you have not already done so, you will need to create a vector to store the account balance for each year. You can use the base R function <code>plot()</code>, or, if you are feeling adventurous, install the "ggplot2" package and use that!</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># We need to keep track of the balances</span>
+<span class="n">balances</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">21</span><span class="p">)</span>
+<span class="n">balances</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">initial_deposit</span>
+
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">possible_years</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">interest</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">interest_rate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">balances</span><span class="p">[</span><span class="n">year</span><span class="p">]</span>
+<span class="w">  </span><span class="n">balances</span><span class="p">[</span><span class="n">year</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">balances</span><span class="p">[</span><span class="n">year</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">interest</span>
+<span class="p">}</span>
+
+<span class="c1"># Load the ggplot2 package</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+
+<span class="c1"># Create a data frame for ggplot</span>
+<span class="n">balances_dataframe</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">possible_years</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">),</span><span class="w"> </span>
+<span class="w">                                 </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balances</span><span class="p">)</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">balances_dataframe</span><span class="p">,</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;identity&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">ylim</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Savings Over Time&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Years&quot;</span><span class="p">,</span><span class="w">    </span>
+<span class="w">       </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Amount (£)&quot;</span><span class="p">)</span><span class="w">    </span>
+</code></pre></div>
+<h2 id="q36-write-a-loop-that-calculates-the-population-size-depending-on-the-reproduction-rate-over-a-period-of-20-years-store-the-population-value-for-each-iteration-of-the-loop-in-a-separate-vector-use-the-information-below-to-create-your-answer">Q36. Write a loop that calculates the population size depending on the reproduction rate over a period of 20 years. Store the population value for each iteration of the loop in a separate vector. Use the information below to create your answer:</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set the initial population size</span>
+<span class="n">pop_size</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1000</span><span class="w">  </span><span class="c1"># year 0</span>
+
+<span class="c1"># Define the number of years for the simulation</span>
+<span class="n">years</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">)</span>
+
+<span class="c1"># Create a vector to store the population size for each year</span>
+<span class="n">population_sizes</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">)</span>
+
+<span class="c1"># Loop over each year to calculate population size</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">current_year</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">years</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1"># Generate a random reproduction rate (mean = 1, sd = 0.4)</span>
+<span class="w">    </span><span class="n">reproduction_rate</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.4</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Calculate the number of new babies based on the reproduction rate</span>
+<span class="w">    </span><span class="n">num_babies</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="n">reproduction_rate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pop_size</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Update the population size</span>
+<span class="w">    </span><span class="n">pop_size</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pop_size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num_babies</span>
+
+<span class="w">    </span><span class="c1"># Store the current population size in the vector</span>
+<span class="w">    </span><span class="n">population_sizes</span><span class="p">[</span><span class="n">current_year</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pop_size</span>
+<span class="p">}</span>
+
+<span class="c1"># Create a data frame for ggplot</span>
+<span class="n">population_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">years</span><span class="p">,</span><span class="w"> </span><span class="n">population</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">population_sizes</span><span class="p">)</span>
+
+<span class="c1"># Plot the population sizes over the years using ggplot2</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">population_df</span><span class="p">,</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">population</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">geom_line</span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="c1"># Line for population growth</span>
+<span class="w">    </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="c1"># Points at each year</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Population Size Over 20 Years&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Year&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Population Size&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">theme_minimal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="c1"># Clean theme for the plot</span>
+<span class="w">    </span><span class="nf">theme</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">element_text</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">14</span><span class="p">))</span><span class="w">  </span><span class="c1"># Increase text size for readability</span>
+</code></pre></div>
+<h2 id="q37-create-a-nested-loop-the-outer-loop-should-iterate-over-the-words-angry-lazy-and-happy-the-inner-loop-should-iterate-over-the-words-birds-dogs-and-horses-the-code-inside-the-inner-loop-should-print-out-a-vector-containing-the-values-of-both-loops-for-example-angry-and-birds-in-the-first-instance">Q37. Create a nested loop. The outer loop should iterate over the words "Angry", "Lazy", and "Happy". The inner loop should iterate over the words "birds", "dogs", and "horses". The code inside the inner loop should print out a vector containing the values of both loops (for example "Angry" and "birds" in the first instance).</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the outer loop variables (emotions)</span>
+<span class="n">emotions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Angry&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lazy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Happy&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define the inner loop variables (animals)</span>
+<span class="n">animals</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;birds&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dogs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;horses&quot;</span><span class="p">)</span>
+
+<span class="c1"># Nested loop</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">emotion</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">emotions</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">animal</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">animals</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1"># Print the combination</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">emotion</span><span class="p">,</span><span class="w"> </span><span class="n">animal</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="q38-look-again-at-the-code-you-wrote-in-q37-did-you-sufficiently-indent-your-code-like-in-the-example-of-a-nested-loop-above-so-that-it-is-easy-to-see-which-lines-of-code-are-executed-at-which-point-of-the-different-loops-if-not-do-it-now-and-continue-doing-it-for-the-next-questions-as-well">Q38. Look again at the code you wrote in Q37. Did you sufficiently indent your code (like in the example of a nested loop above), so that it is easy to see which lines of code are executed at which point of the different loops? If not, DO IT NOW! And continue doing it for the next questions as well.</h2>
+<p>The answer is included in Q37 above with proper indentation.</p>
+<hr />
+<h1 id="part-3-bonus-question-answers"><strong>Part 3 - Bonus Question Answers</strong></h1>
+<h2 id="q39-write-a-function-that-converts-a-short-dna-sequence-of-15-bases-eg-acctgtcatcatccc-to-rna-and-splits-the-string-into-codon-triplets">Q39: Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into codon triplets.</h2>
+<div class="highlight"><pre><span></span><code><span class="n">convert_dna_to_rna_triplets</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">dna_seq</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1"># Replace T with U to convert DNA to RNA</span>
+<span class="w">  </span><span class="n">rna_seq</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;T&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;U&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dna_seq</span><span class="p">)</span>
+<span class="w">  </span><span class="c1"># Calculate the positions for triplets</span>
+<span class="w">  </span><span class="n">first_positions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+<span class="w">  </span><span class="n">last_positions</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Create triplets using substring</span>
+<span class="w">  </span><span class="n">rna_triplets</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">substring</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rna_seq</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                            </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first_positions</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                            </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">last_positions</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">rna_triplets</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">triplets</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">convert_dna_to_rna_triplets</span><span class="p">(</span><span class="s">&quot;ACCTGTCATCATCCC&quot;</span><span class="p">)</span>
+<span class="n">triplets</span>
+</code></pre></div>
+<h2 id="q40-write-a-function-to-obtain-the-reverse-complement-of-a-dna-sequence">Q40. Write a function to obtain the reverse-complement of a DNA sequence.</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the function to get the reverse complement of a DNA sequence</span>
+<span class="n">reverse_complement</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">dna_seq</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Step 1: Replace each base with its complement</span>
+<span class="w">  </span><span class="n">complement</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dna_seq</span><span class="p">)</span>
+<span class="w">  </span><span class="n">complement</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;T&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">complement</span><span class="p">)</span>
+<span class="w">  </span><span class="n">complement</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;g&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">complement</span><span class="p">)</span>
+<span class="w">  </span><span class="n">complement</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;G&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">complement</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Step 2: Split the string into separate characters and unlist</span>
+<span class="w">  </span><span class="n">split_seq</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">strsplit</span><span class="p">(</span><span class="n">complement</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+
+<span class="w">  </span><span class="c1"># Step 3: Reverse the sequence</span>
+<span class="w">  </span><span class="n">reversed_seq</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rev</span><span class="p">(</span><span class="n">split_seq</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Step 4: Remove spaces and return as a single string</span>
+<span class="w">  </span><span class="n">reverse_complement_seq</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">toupper</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">reversed_seq</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">reverse_complement_seq</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">reverse_complement</span><span class="p">(</span><span class="s">&quot;ACCTGTCATCATCCC&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="q41-palindromic-sequences-answers">Q41: Palindromic Sequences Answers</h2>
+<p><strong>Question:</strong> Write a function that assesses whether a given word or phrase is a palindrome. Palindromes are arrangements of words or letters which read the same way whether you read them backwards or forwards, such as the phrase "never odd or even" (if you remove the spaces). In molecular biology, many restriction enzyme sites are palindromic.</p>
+<p><strong>Hint:</strong> Before starting to code, think about the steps needed to judge if something is a mirror palindrome. Write these steps as comments first, then implement them. Use easy test cases where you know the answer.</p>
+<p><strong>Answer:</strong></p>
+<h3 id="step-1-planning-as-comments">Step 1: Planning (as comments)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Steps to check if a sequence is a palindrome:</span>
+<span class="c1"># 1. Convert the input to uppercase (for consistency)</span>
+<span class="c1"># 2. Remove spaces and special characters (for phrase palindromes)</span>
+<span class="c1"># 3. Split the string into individual characters</span>
+<span class="c1"># 4. Reverse the order of characters</span>
+<span class="c1"># 5. Compare the original with the reversed version</span>
+<span class="c1"># 6. Return TRUE if they match, FALSE otherwise</span>
+</code></pre></div>
+<h3 id="step-2-one-off-code-testing-the-logic">Step 2: One-off code (testing the logic)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test with a simple case</span>
+<span class="n">test_word</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;GAATTC&quot;</span><span class="w">  </span><span class="c1"># EcoRI restriction site - palindromic</span>
+
+<span class="c1"># Convert to uppercase</span>
+<span class="n">test_word</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">toupper</span><span class="p">(</span><span class="n">test_word</span><span class="p">)</span>
+
+<span class="c1"># Remove spaces (not needed for this case, but good practice)</span>
+<span class="n">test_word</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">test_word</span><span class="p">)</span>
+
+<span class="c1"># Split into individual characters</span>
+<span class="n">chars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">strsplit</span><span class="p">(</span><span class="n">test_word</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="n">chars</span>
+<span class="c1"># Result: &quot;G&quot; &quot;A&quot; &quot;A&quot; &quot;T&quot; &quot;T&quot; &quot;C&quot;</span>
+
+<span class="c1"># Reverse the characters</span>
+<span class="n">reversed_chars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rev</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
+<span class="n">reversed_chars</span>
+<span class="c1"># Result: &quot;C&quot; &quot;T&quot; &quot;T&quot; &quot;A&quot; &quot;A&quot; &quot;G&quot;</span>
+
+<span class="c1"># Join back into a string</span>
+<span class="n">reversed_word</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="n">reversed_chars</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">reversed_word</span>
+<span class="c1"># Result: &quot;CTTAAG&quot;</span>
+
+<span class="c1"># Compare</span>
+<span class="n">test_word</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">reversed_word</span>
+<span class="c1"># Result: FALSE (GAATTC is not the same as CTTAAG)</span>
+
+<span class="c1"># Let&#39;s test with a true palindrome</span>
+<span class="n">test_word2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;GAATTC&quot;</span>
+<span class="c1"># Actually, for DNA palindrome, we need reverse complement!</span>
+<span class="c1"># But for simple text palindrome, let&#39;s use:</span>
+<span class="n">test_word2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;racecar&quot;</span>
+<span class="n">test_word2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">toupper</span><span class="p">(</span><span class="n">test_word2</span><span class="p">)</span>
+<span class="n">chars2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">strsplit</span><span class="p">(</span><span class="n">test_word2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="n">reversed2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="nf">rev</span><span class="p">(</span><span class="n">chars2</span><span class="p">),</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">test_word2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">reversed2</span>
+<span class="c1"># Result: TRUE</span>
+</code></pre></div>
+<h3 id="step-3-create-the-final-function">Step 3: Create the final Function</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Function to check if a word or phrase is a palindrome</span>
+<span class="n">is_palindrome</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Convert to uppercase for case-insensitive comparison</span>
+<span class="w">  </span><span class="n">text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">toupper</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Remove spaces and non-alphanumeric characters</span>
+<span class="w">  </span><span class="n">text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;[^A-Z0-9]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Split into individual characters</span>
+<span class="w">  </span><span class="n">chars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">strsplit</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+
+<span class="w">  </span><span class="c1"># Reverse the characters</span>
+<span class="w">  </span><span class="n">reversed_chars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rev</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Join back into a string</span>
+<span class="w">  </span><span class="n">reversed_text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="n">reversed_chars</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="c1"># Compare original with reversed</span>
+<span class="w">  </span><span class="n">is_same</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">reversed_text</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kr">return</span><span class="p">(</span><span class="n">is_same</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Test the function</span>
+<span class="n">test_cases</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span>
+<span class="w">  </span><span class="s">&quot;racecar&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;hello&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;A man a plan a canal Panama&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;never odd or even&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;GAATTC&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;palindrome&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;madam&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;step on no pets&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Test each case</span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">test</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">test_cases</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">is_palindrome</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">ifelse</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;IS a palindrome&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;NOT a palindrome&quot;</span><span class="p">)))</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Output:</strong>
+<div class="highlight"><pre><span></span><code>[1] &quot;racecar -&gt; IS a palindrome&quot;
+[1] &quot;hello -&gt; NOT a palindrome&quot;
+[1] &quot;A man a plan a canal Panama -&gt; IS a palindrome&quot;
+[1] &quot;never odd or even -&gt; IS a palindrome&quot;
+[1] &quot;GAATTC -&gt; NOT a palindrome&quot;
+[1] &quot;palindrome -&gt; NOT a palindrome&quot;
+[1] &quot;madam -&gt; IS a palindrome&quot;
+[1] &quot;step on no pets -&gt; IS a palindrome&quot;
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.tooltips", "navigation.instant", "navigation.tabs", "toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
