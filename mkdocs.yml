@@ -35,6 +35,7 @@ nav:
     - index.md
     - R via Apps Anywhere: UsingR/Cloud_R_AppsAnywhere.md
     - Install R Locally: UsingR/Local_R_Install.md
+    - RStudio via the Teaching Cluster: UsingR/RStudio_Teaching_Cluster.md
 
   - Practicals:
     - R Crash Course Practical: practicals/R_Crash_Course_Practical.md
